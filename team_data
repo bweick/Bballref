@@ -5,7 +5,7 @@ import json
 import pandas as pd
 
 year = '2015'
-filepath = 'C:\\Users\\Brian\\Documents\\Player Dictionaries\\NBA\\Teams\\Team '
+filepath = #location you want to save json dictionary to
 bblink = 'http://www.basketball-reference.com'
 
 #fxn that creates dataframe for individ team data
