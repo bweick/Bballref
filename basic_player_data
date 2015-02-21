@@ -7,13 +7,13 @@ import string
 from pandas import DataFrame
 
 year = '2015'
-filepath = #location you want to save json dictionary
-bblink = 'http://www.basketball-reference.com/players/'
+filepath = 'C:\\Users\\Brian\\Documents\\Player Dictionaries\\NBA\\Basic Gamelogs\\BasicPlayers.json'
+bblink = 'http://www.basketball-reference.com/'
 
 # create list of links to players basic gamelogs by cycling through alphabetical structure on bbref website
 names = []
 for letter in string.ascii_lowercase:
-    url = bblink + letter + '/'
+    url = bblink + 'players/' + letter + '/'
     file_pointer = urllib.urlopen(url)
     soup = BeautifulSoup (file_pointer)
     
@@ -28,7 +28,6 @@ for letter in string.ascii_lowercase:
         link = name_data.split('"')[1]
         names.append((name, bblink + link + '/gamelog/'+ year + '/'))
 
-#associate each player with their url
 players = {}
 for name in names:
     name = str(name).strip('( )')
@@ -37,7 +36,7 @@ for name in names:
     url1 = str(name).split(',')[1]
     players.update({player:url1})
 
-#function which allows i=you to input dict and player and return an output        
+#function which allows you to input dict and player and return an output        
 def getPlayers(dic, player):
     return dic["'" + player + "'"]
 
